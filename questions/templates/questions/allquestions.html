@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Questions page</title>
+		<style> 
+			table {
+				width: 100%;
+				height: 50px
+				border-collapse: collapse;
+				margin-top: 10px;
+			}
+			table, th, td {
+				border: 1px solid black;
+			}
+			th {
+				text-align: left;
+				text-weight: bold
+			}
+			tr {
+				padding: 5px
+			}
+		</style>
+	<head>
+	<body>
+		<a href="{% url 'home' %}">Home</a>
+		<hr />
+		<p>First page for questions</p>
+		<a href="{% url 'new_entry' %}">Create New Entry</a>
+		<!-- Need to create a table an loop through each item here. -->
+		<br />
+		<table>
+			<!-- This was the original goof up. <th> act in place of <td>, not as <trs>
+			<th>
+				<td>Question</td>
+				<td>Topic</td>
+				<td>Date</td>
+			</th>
+			-->
+			<tr>
+				<th>Question</th>
+				<th>Topic</th>
+				<th>Date</th>
+			</tr>
+				
+			
+			<!-- Code goes here -->
+			<tr>
+				{% for q in questions.all %} 
+				<td><a href="{% url 'details' q.id %}">{{ q.title }}</a></td>
+				<td>{{ q.topic }}</td>
+				<td>{{ q.date }}</td>
+			</tr>	
+				{% endfor %}
+	</body>
+</hmtl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

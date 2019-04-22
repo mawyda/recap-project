@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>This is a test...</title>
+	</head>
+	<body>
+		<div class="container">
+			<h2>Welcome to the Site</h2>
+			<a href="{% url 'code' %}">Code</a>
+			<a href="{% url 'allquestions' %}">Questions</a>
+			<hr />
+			<p>This is the intital text for the website.</p>
+			<form action="{% url 'count' %}" method="GET">  
+				<textarea name="fulltext" maxlength=300></textarea>
+				<br />
+				<input type="submit" value="Submit!" />
+			</form>
+		</div>
+	</body>
+</html>

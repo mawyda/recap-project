@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+{% extends 'questions/base.html' %}
+<html>
+	<head> 
+		<title>Create a new entry</title>
+		<link rel="icon" href="./link.gif" type="image/ico">
+	</head> 
+	<body>
+		{% block content %} 
+			<!-- ceate teh form information... THis would probably be a decent place to create a message saying things worked ...-->
+			<form action="{% url 'new_entry' %}" method='post'>
+				{% csrf_token %} 
+				{{ entry_form.as_p }}
+				<button name="submit">Create New</button> 
+			</form> 		
+		{% endblock content %} 
+	</body>
+</html> 
