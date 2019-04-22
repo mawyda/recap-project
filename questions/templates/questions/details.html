@@ -6,13 +6,12 @@
 		<title>{{ details.title }}</title>
 	</head>
 	<body>
-			
 		{% block content %}
 			<h3>{{ details.title }}</h3>
 			<p>{{ details.date }}</p>
 			<p>{{ details.topic }}</p>
 			<br />
-			<p>{{ details.summary }}</p>
+			<p>{{ details.summary|linebreaks }}</p>
 			<!-- new for the edit features -->
 			<br />
 			<a href="{% url 'edit_entry' details.id %}">Edit this entry?</a>

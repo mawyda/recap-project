@@ -8,7 +8,7 @@ from datetime import datetime
 
 class Questions(models.Model):
 	title = models.CharField(max_length = 60)
-	summary = models.CharField(max_length = 400)
+	summary = models.CharField(max_length = 1200)
 	topic = models.CharField(max_length = 30)
 	# tags 
 	date = models.DateTimeField(default = datetime.now)

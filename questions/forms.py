@@ -13,3 +13,8 @@ class QuestionForm(forms.ModelForm):
 		fields = ['title', 'summary', 'topic']
 		labels = {'title': 'Title', 'summary': 'Summary', 
 			'topic': 'Topics'}
+		# widget to change the summary to a text area, so line breaks 
+		# can be added.
+		widgets = {'summary': forms.Textarea(attrs = 
+			{'cols': 80, 'rows': 8})
+		}

@@ -18,6 +18,7 @@ def allquestions(request):
 				)
 
 def details(request, q_id):
+	"""Serves up the details of the question entry."""
 	# Get the posting data by id number:
 	q_details = Questions.objects.get(id = q_id)
 	# return the data 
