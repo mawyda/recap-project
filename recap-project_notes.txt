@@ -156,18 +156,227 @@ Also, the form controls look like garbage. Need to fix because they are actually
 
 # Will the datetime fielsd enter itself? since it is being set to a default, i don't think I ned to enter it into the form control....
 
+##############################
+
+
+when a url is requested, django accesses the urls's file. if a match, it then sends to the views, which then serve up the html. 
+
+#############################
+#############################
+
+# how to parse the directory to get the name of ppl? 
+
+regex? group it. 
+match =pattern.finditer(r'(CN=)(\w+)(_OU+)')
+
+
+##############################
+##############################
+
+Option A: 
+create a dir for the project.: mkdir <project name>
+migrate to that. this will be the top project level folder (contains manage.py)
+Create the virtual env with: python -m venv <venv name>
+Create the project once the venv is activated and django installed. 
+django-admin startproject <project name> .
+# The dot ignores creating the highest level project folder, but this was created above. 
+
+# Here is a branch. You can start the project and verify everything is working with:
+>>> python manage.py runserver 
+then go to localhost:8000/
+# However, this will create the DB and I remember this causeing some issues. 
 
 
 
 
 
 
+# When learning, it helps to have a list of questions that have not been answered. 
+# It will be beneficial to create my own note taking application or way to display code. 
 
 
 
+# {% extends html name?' %} Remember how to use this for headers and footers. 
+
+Rebuild the code for the wordcount project by going through this again, writing out hte steps, and then creating branches to go off of. Maybe color code the data as well? 
+
+##### 
+The best thing right now wouold be to also create a refernce site for me, as it helps me build up my tools as I am working on the other aspects and project.s THe mas Bagua site will definitely help with things, and I will need to create my own site as well. Still hit up SNES Drunk guy, and research how to grow these sorts of things. Helping him creaete content would certianly get my name out there and start to create some buzz. 
+
+As far as the reference site goes, what kind of information am I trying to convey/capture?
+
+1. I would like to be able to add links to pages and discussions about new findings. 
+
+The tendency to become a digital hoarder doesn't help. I never get back to those things. To do apps tend to not help those who don't do...
+That being said, it would be nice to collect some info, and if I know i'm not going to look at it, I could build a little bucket to dumpo this info into.,
+From there, I could give a timeline, and possibly see how much i have accomplished with various trackers and such. It could be a growth tracker of some sort. 
+At the very least, I could add some urls, a tag, and potentially a brief description. Think of this as more of a Bookmarks with guts. 
+You could time this, and it would act as a to do. This is ok for coding, but I still think It will need worked on. But at the very least- would it help me? 
+
+Well, what about the whole CSS deal with margins? I feel like I'm probably making this harder than it should be, but I would like to have something where I can search (ala google) for the answers. Or maybe I can track how frequently I check out a particular topic. Hell, I could even keep something as simple as having a list of questions about stuff- that's the ticket:
+
+This will allow me to write out questions i have about things, and then start to piece together a learning plan, or codifying my notes. So you ask about why you should run the server until you've changed the code to accpet postgres (I think it's only because it creates the DB, but whatever). Regardless, you can write out a question you had, and even if you have answered it, you can document it so you're not going back and doin it again. This will work for smaller topics- i'm not sure how it will do for full-scale topics. Maybe you can start to build something from that. 
+Like, if you were to begin to write out all of the notes, you could add a gotcha to the posting and then go from there. THe blog post and topic can be built from the questions you asked about it. 
+
+You would need to have something to be able to edit the content for this to work, especially if you made a post with just the question and without any research. Hmm, this is essentially stack overflow. 
+But maybe I want to make SO with tracking and such. 
+
+You could even connect, and have a list of inquisitveness. Maybe others in your group can collaborate. It is a lot like stack overflow, but for any topic imaginable. 
+
+You could build AI into this as well. ALthough, google is doing that on its own. 
+
+But, some more brain storming: 
+you can see when the question was posted, see how long its been sitting there. You could even get an idea of how many things have been completed, and how many to date. When your most productive times are. This could be a productivity app, in a sense. [
+
+WHat about creating a feed of info from other sites as well. I suppose you could always link, but RSS feeds are cool to, or at least something worth looking into. 
+
+
+Ah, back to the app: i'd like to be able to save some things and tag them. But i never get back to them, or kind of just forget about it. So, maybe this is a way to help with digital hoarding: if you don't check this item out, maybe you should get rid of it. Did you even access it? If you did, when was the last time? 
+
+template extending in django: would be a greate reference topic right there. You could even pin it to your dashboard, or references. It's an application for ppl trying to be productive. 
+
+but what to do with all of the extra websites I keep? Well, what's the problem? You never go back to these, they get sent to your email and forgotten, etc. SO this is meant to be a way to decrease this clutter as well. It's your method for using all of these tools that may be the issue. I wonder if Youtube has an API? That way any videos you save can be pulled into the app and categorized as well, so you can kind of see your media at any given point. It's a thing to tie all of your resources together into one pool- to create your own library of data in a single referernce place. 
+
+I think there is one. ANd this way you could even reference a spot in the video, or use them to learn and so on and so forth. 
+
+
+##############################
+
+Ignoring git for now- current env causes issues here
+
+There are multiple views per app, but there should only be one url file, correct?
+- Not necessarilly. You can add another urlCONF by using the include functions from django.urls.
+You will then need to create another url file in that app, but it does not get included in settings. 
+# However, I wonder if you could and what that would do....
+
+# It seems that the include gets used to create various sections, or it starts off as a sections and then shows it's individual posts....like 
+homepage.com/blogs/
+
+also, the app will need to have its own templates/appname/html files to look through. 
+# Does this need to be added to the settings.py app?
+
+my portfolio project includes settings, and it should not. regardless, the data templates dir is empty. This is unlike the wordcoutn project where we added this info to the file. Do apps simply ignore this kinda deal and stuff happens in the background? 
+
+##############################
+
+make a todo portion as well, and then clean it up to show all on the dashboard. 
+
+next, how to get the links to work for the individual urls? need to be able to click on these and move to the details. 
+
+next on the TODO is to make the postings editable. I could do this through admin site, but this needs to be available for all users. 
+
+I would alse need to be able to click to create a new one as well. 
+
+##############################
+
+https://simpleisbetterthancomplex.com/article/2017/08/19/how-to-render-django-form-manually.html#working-example
+
+https://realpython.com/django-redirects/
+
+https://pymotw.com/3/collections/ordereddict.html
+
+##############################
+##############################
+04.16.2019 
+
+reference sites: 
+- analyze other reference type sites and build a template off of that. I would like to be able to put a lot of information together in one place, so it is a type of note-taking application as well. 
+
+172.16.96.168
+
+<link rel="icon" href="http://example.com/favicon.png">
+
+172.16.97.195
+vgpu-w10-worksoft
+that is the name of the template for future reference 
+
+Should tags replace the whole topic deal? In learning logs, you could cascade delete the topic to kill the entries. Here, I would want to not delete the topic, although if you did delete all, an entry would become stranded...
+
+Again, I do want to be able to link all of my thoughts together or build a tutorial from it as well. 
+
+
+##############################
+
+04.22.2019 
+
+
+ToDO: 
+Improve template tags. Actually create the app and model. Test with the shell (and write out its commands and a how to). 
+
+1. increase the char limit on the summary portion.  Will I lose my db data if this happens? 
+	- I may want to export the data, at least for now. Can this be done through the shell? 
+	- ANS: No, it does not kill anything to migrate. It just updates in htis case. Use sqlite db manager to export. 
+
+2. change the widget on form to a text area. Are forms a model? No, and DONE
 
 
 
+Goals for the site for the week? 
+1. Set it up so that I can actually start using and recording things. 
+	- I suppose we are this place now, just need to deploy. Could even use the learnign logs app I have out there. 
+
+2. Test the shell connection and understand how things work there. Create a sheet of things related to: 
+	- django/ DB shell 
+	- App creation? 
+	- Basic setup (like the wordcount project). 
+	
+3. There needs to be a single place that I am recording information- too disorganized. Would like to have a place to plan out the entire project. 
+
+4. If you create a toDo app, does the current date get passed with the request object. How would you create something that says xyz need to be updated by XYZ date? 
+
+5. #Questions model. 
+	- I would like to have something where I could keep the old entries and then update. I suppose these seperate entries could be deleted. So it's kind of like stack overflow where you can have 4 answers, but then when I feel like it I can join all of these into one post. 
+	- Does the negate the reason to have an "Answered" field? It can go back and forth, from the way I'm describing it. 
+	- Also, how would you create this? I don't want to have something where the question is it's own model, and then each comment is an entry model, like learning logs. Well, it is the same app... It just seems  pointless to nest things this extremely. I would rather create a list for each Answer: 
+	<App>
+		<Question (model) >
+			- answer1 (list_item)
+			- answer2 (list_item)
+			- answer3 (list_item)
+	</App>
+	
+6. Yeah, the current method is to delete the original summary, and then add answers. 
+- it would be better to 
+
+
+
+P: why having things listed as topics and todos helop get it out of your mind space and into a bite sized chunk to work on. I'm thinking about the things i need to work on, and this allows me to simply get ti out and into the todo list instead of trying to keepo it in memory. 
+Remember the mindset before creating. 
+c: django list field
+
+7. link to other questions!!! I was just writing an answer about django migrations , and another qwuestion popped up. It would be cool to create a question on the spot, or to organically go to the next question. It's almost like having recommended questions afterwards. 
+It's a sort of thread, or neural network that I want to tap into. How do I do this? 
+OR, would tags kind of act as this? 
+Yeah, SOverflow has both linked and related tags. 
+
+8. A staging areas of questions and answers you want to accomplish right now. Queue them up, maybe start a timer, etc. 
+
+
+urs3Ufm-,h0[J[
+
+Q?: should I reroute to the entry itself, once editing? That's probably a better choice. 
+
+
+##############################
+
+04.23.2019
+
+# Reference to widget formatting- Q?: Can you add css to the form here? 
+https://drumcoder.co.uk/blog/2010/jul/17/textarea-django-form/
+
+
+ToDo: 
+	- tags model. 
+		- create a few tags. 
+		- add these to some of the questions. 
+	- Create a cheat sheet for the shell commands" 
+	
+Display them: 
+	- How? as links? 
+	
+https://stackoverflow.com/questions/tagged/django
+
+StackOverflow displays them as links. See above for the url structure, which uses the tag name in the pattern. 
 
 
 

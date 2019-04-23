@@ -19,6 +19,5 @@ class QuestionForm(forms.ModelForm):
 			{'cols': 80, 'rows': 8})
 		}
 		# Trying to get CSS into the widget...
-		#widgets = {'summary': forms.Textarea(attrs = 
-		#	{'cols': 80, 'rows': 8, 'class': 'textarea-field'})
-		#}
+		#	{'cols': 80, 'rows': 8, 'class': 'textarea-field'}
+

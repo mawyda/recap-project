@@ -13,4 +13,16 @@ class Questions(models.Model):
 	# tags 
 	date = models.DateTimeField(default = datetime.now)
 	
+	def __str__(self):
+		return self.title[:20] + "..."
+		
+class Tags(models.Model):
+	"""Class for tags for entries."""
+	title = models.CharField(max_length = 35) 
+	questions = models.ManyToManyField(Questions)	
+	# How to return the number of questions the tag is related to? 
+	# ...Each model is row...or does this more refer to a table? 
+	
+	def __str__(self):
+		return self.title	
 	
