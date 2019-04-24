@@ -379,12 +379,144 @@ https://stackoverflow.com/questions/tagged/django
 StackOverflow displays them as links. See above for the url structure, which uses the tag name in the pattern. 
 
 
+Ulitmately, topics should be replaced by tags. Well, topics can act like an overarching thing. 
+If I keep things general, such as python, django, css, html. 
+Too many tags and it gets nuts. 
+
+Time to make a topics page? Reference page? The idea is to tie allof this together as well. I'd like to be able to add links to the topic/ reference docs created. 
+
+Do I create an "Answered" field? DOes stackoverflow have this? 
+
+# 
+As far as a reference site goes, do I attach this to the tags app? So, if you click on the tag itself, it will take you to the main hub for that topic. This will contain all the questions, related to the topic, and a list of references to it as well. 
+
+I also do not want to be hung up on the building of the application- this will of course be necessary, but remember the gaol was to creaete an app that others may be able to use, to learn while doing it, and to start creating a reference document for myself. 
+
+So, I need to keep working on the DJango stuff and get that written out. 
+in addition to:
+HTML, 
+CSS. 
+Postgresql. 
+
+In addition to general python stuff, and codifying my notes in that realm. 
+
+Need to be able to choose from tags when creating the new entry. Again, this probably need s to replace topics. The tags are the topics. 
+
+# Can create the ToDo, and try to import info from the tags. The issue I had with circular references may be due to the way i was using the m2m field. 
+
+ 
+1. What should the template look like? How is my todo any different than question, really? Other than intent (and that i want this list to disappear), Would I simply display as a table? 
+I would like to start building on refrences as well, but I suppose a lot of this can be done on pen and paper yet. 
+
+2. I need to design the app, and that's cool. But I am again going back to needing some code to write. So much study and not enough code. But maybe that's the way it goes- you sepnd so much time planning and reading before you actually get coding. 
+
+Q?: what was the last bit of project i was working on? The csv code for dulari. Other than that, the sharepoint project was a thing. 
+I think some of the ideas I had about the youtube api made things exciting as well. Keep this in mind, because it helps motivate to build the code. 
+
+Creating a dashboard for visualizations and understanding how to write that code will be cool too. 
+I would like to back through the basics as well and record all of that stuff in a decent reference. 
+
+Q?: How would the reference look? 
+BAsit around a few general topics. Then, each topic (django.model) is a method (python.method()) or function. Draw this out: 
+
+The conception of this reference cam e more from running into items where I know I've done before and forgot, or came back to and was stuck again. It's a way to create a quick and easy note taking method to keep my knowledge and access it efficiently. 
+
+answered = models.Boolean()
+
+# 
+Functionality:
+1. Priority level
+2. topic, or tags related. 
+3. title
+4. Summary 
+5. Date entered
+6. Due date 
+7. Complete (filter on this and do not display those that are complete.)
+	- Will I want to be able access older ones and turn them back on? 
+	- It would be nice to create something where a project can house individual aspects of the todo: Like, these can even be turned into topics or refernce pages. Each idnividual one could act as a chapter. Maybe it would simply be an overatrching tag that grouped thouse things. 
+8. Estimated manhours- How wlong will this take to complete? 
+9. reminders 
+10. status? WIP. Expected dates. History. How many times did you move the due date. 
 
 
+Possibles: 
+	- A shared experience. Someone can tell you they need xyz from you. 
+
+Displaying:
+	- Don't forget the value of color coding. For now, be explicit in the form of text. 
+
+The whole idea is to get more organized anyway. I want to be able 
+
+Visualizations help with all of this as well, just like-color coding things. 
+
+Write a API for all of this as well. 
+
+Add the user portion as well. It would be cool for the user to be able to sign up for reminders or status reports. 
+Build a dashboard. 
+
+##############################
+
+04.24.2019 
+
+Maybe tags can show nested topics as well? Like, if I create a topic in the python area/ group, etc, this topic will be populated in the questions portion of my app. SO I choose Python for the question, and this then offer a sub category of "venv", for example. This will then link to the topic and to the todos, creating a closed circuit of info here or at least a web of questions and resources. 
+
+ToDo app: 
+1. Pages:
+	- a main age, like quesitons, listing all todod (probably ordered in some way). 
+	- a create portion. But maybe this always exists on the page as a form. 
+	- a more detailed view of the todo. 
+	- ability to mark as complete
+
+Actually, just model it off the Wunderlist  app, to keepo things simple. 
+this has a button to show completed views, which would be useful, but I bet this is written with JS, or server side interactive programming. 
 
 
+Q?: Can you enter a list of options for Django to choose from? You can in dbs...
+
+timeline: 
+
+You can also add timers to the to do list when you are working on stuff....
+
+I do want to add a refernce page to things, and then when ium just typing right now, i thought of wanting to add an "answered" or completed to the questions. THis small thought should be dumped into the todo app, so i can at least get it out of my head space and structured. 
+
+title, summary, date added, 
+tagged. / group
+Maybe a scroll down of related questions...
+priority
+short term, medium term, long term (w/ details) 
+Difficulty: easy, medium, hard? 
+timers to complete the to do or solve a problem.
+categories IF not using htis exclusively for a particular domain (currentoly only related to studying development). Maybe narrowing the scope is the best way to use this. 
 
 
+@Notes: 
+Be careful of not putting things in a questions:
+"How do you add a list of options to choose from in DJango?"
+and then also adding a task:
+"Find out how to add a list of options to the model in DJango"
+
+Although, it could be beneficial to see how many unanswered questions there are. And going to the questions for quick little recaps is useful as well. 
+Ultimately, the todo app is made to quickly add something as you continue to work towards other things. 
+
+@dates 
+Need to be able to flag things as past due, potentially storing this in a db field. although, current time needs to be requested. From the system, or the request. 
+
+
+QUestions and things tend to cascade. I am asking about deploying, but I would like to understand many other points and need to get others ready before I can do that. SO, a sort of prereqs can be accomplished before I execute that. You can group things together and then 
+
+
+Interactivity. Be able to click on the item and then this will queue it up as next to work on. 
+Like, materia colored radio buttons. You can click on (answer this next). From here, you can build out your own queues and systems. 
+
+Maybe even click it into done, or whatever... Then the dashboards would give youy a great visual representation of the flow of things and where you stand with eveything. 
+
+Maybe this will solve the issue of havoing questions and todods being similar at times. Being able to click the "queue it up" button on the question will allow you to define your workflow...
+You can move things around, and have prerequisites there will help show what may need to be done first, what is a greater proirity, etc. 
+
+@Note: 
+modules can be a field type. This will allow me to add data and to create subcategories in the tags. 
+
+TODO: Add a done portion to the app as well- otherwise it never ends!!
 
 
 

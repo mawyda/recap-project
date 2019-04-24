@@ -24,4 +24,6 @@ urlpatterns = [
     path('count/', views.count, name = 'count'),
     path('code/', views.code, name = 'code'),
     path('questions/', include('questions.urls')),
+    # The ToDo app
+    path('todo/', include('todo.urls')), 
 ]

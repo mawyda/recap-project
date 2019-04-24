@@ -14,7 +14,8 @@ class Questions(models.Model):
 	date = models.DateTimeField(default = datetime.now)
 	
 	def __str__(self):
-		return self.title[:20] + "..."
+		#return self.title[:20] + "..."
+		return self.title
 		
 class Tags(models.Model):
 	"""Class for tags for entries."""
