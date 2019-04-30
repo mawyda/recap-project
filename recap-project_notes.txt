@@ -519,6 +519,88 @@ modules can be a field type. This will allow me to add data and to create subcat
 TODO: Add a done portion to the app as well- otherwise it never ends!!
 
 
+##############################
+
+04.30.2019 
+
+ToDo:
+
+- add the edit todod and the create new todo views. 
+	- requires making forms!!. 
+
+view: 
+check if post or get. if get, fill the form with the instance. Still have not answered why 
+data = request.POST is used as a n argument in the object instance. 
+
+Q?: How do you pass additional arguments like the todo_id, in an HttpResponseRedirect? 
+	- It does nto look like it. 
+Q?: Should each app have its own template base.html? Or, soft code what appears in the link? 
+How could this be done where if we are in the questions, you see "return to questions?", but if you are in the todos, you see a link to go to the main todos page? 
+-A: The simplest way would be to include this in the template itself, and not the extended/ parent template. 
+
+Todo1: 
+Add the questions, todo to the main extended template. 
+Q? Where should site wide templates be stored in the dir? Just a simple tempaltes, and then when you reference you do not include the subdir like ('questions', etc). 
+
+
+# The view for the edit entry also requires that you pass the model object, not just the form, because we need to be able to call that entry based on its id. 
+Q?:  Without using the redirect, will there be problems when rendering the data? I think so- you will need to get teh newly updated data before you send it back. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

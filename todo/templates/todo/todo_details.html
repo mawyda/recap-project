@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-{% extends "questions/base.html " %}
-<html> 
+{% extends "questions/base.html" %}
+<html>
+	{% block content %}
 	<head>
 		<title>{{ todo.title }}</title>
+		<style> 
+			a { 
+				margin-right: 20px
+			}
+		</style>
 	</head>
 	<body>
-		{% block content %}
+		
 			<h3>{{ todo.title }}</h3>
+			<a href="{% url 'todo_edit' todo.id %}">Edit entry</a>
+			<a href="{% url 'todos_main' %}">Back to ToDos...</a>
+			<br />
 			<br />
 			<!-- Ultimately this will be a list item with things pushed horizontally -->
 			<table>
@@ -25,7 +34,6 @@
 			</table>
 			<br />
 			<p>{{ todo.summary }}</p>
-	
 		{% endblock content %}
 	</body>
 </html> 

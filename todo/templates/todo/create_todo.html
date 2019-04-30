@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+{% extends 'questions/base.html' %}
+<html>
+	{% block content %} 
+	<head> 
+		<title>Create a new todo</title>
+		<!--<link rel="icon" href="./link.gif" type="image/ico">-->
+	</head> 
+	<body>
+			<h3>Create a new ToDo</h3>
+			<a href="{% url 'todos_main' %}">Back to todos...</a>
+			<br />
+			<!-- ceate the form information... THis would probably be a decent place to create a message saying things worked ...-->
+			<form action="{% url 'create_todo' %}" method='post'>
+				{% csrf_token %} 
+				{{ form.as_p }}
+				<button name="submit">Create New</button> 
+			</form> 		
+		{% endblock content %} 
+	</body>
+</html> 

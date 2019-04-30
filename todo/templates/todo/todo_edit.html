@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends "questions/base.html" %}
+<html>
+	<head>
+		<title>Edit ToDo info</title>
+	</head>
+	<body>
+		{% block content %}
+		<h3>Edit contents for ...</h3>
+		<p>{{ todo.title }}</p>
+		<br /> 
+		
+		<!-- Will require link to the todos again -->
+		<form action="{% url 'todo_edit' todo.id %}" method="POST">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button name="submit">Save Changes</button> 
+		</form>
+		{% endblock content %}
+	</body>
+</html>
