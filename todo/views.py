@@ -39,7 +39,12 @@ def todo_edit(request, todo_id):
 			form.save() 
 			# Redirect the user to the main todos page, 
 			# or the todo itself?
-			
+		### TEST ###
+		else: 
+			# Printing to terminal for test 
+			print("\nThis didn't pass...\n")
+			# Add additional information and reload the page...
+
 			# Here is how you would return back without an arg- it seems
 			# that this function does not allow for the 'todo_id'
 			# return HttpResponseRedirect(reverse('todos_main'))

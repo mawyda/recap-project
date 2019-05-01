@@ -25,8 +25,8 @@ class ToDo(models.Model):
 		)  
 	
 	# TODO: overdue, priority, group/ tagged, 
+	# done = models.BooleanField(default = False)
 	done = models.BooleanField(default = False)
-	
 	
 	def __str__(self):
 		return self.title

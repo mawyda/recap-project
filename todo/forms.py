@@ -8,6 +8,8 @@ from .models import ToDo
 class ToDoForm(forms.ModelForm):
 	"""Form for the ToDo model."""
 	# Create the structure in a Meta class 
+	done = forms.BooleanField(required = False)
+	# To override the BooleanField requirements 
 	class Meta: 
 		model = ToDo 
 		# fields as list 
@@ -15,7 +17,8 @@ class ToDoForm(forms.ModelForm):
 			'title',
 			'summary',
 			'date_due', 
-			'difficulty', 
+			'difficulty',
+			'done'
 		]
 		# labels as dcny 
 		labels = {
@@ -23,10 +26,13 @@ class ToDoForm(forms.ModelForm):
 			'summary': 'Summary', 
 			'date_due': 'Due Date',
 			'difficulty': 'Level of Difficulty', 
+			'done': 'Done', # currently showing as something else...
 		}
 		# Widgets so that summary can be edited as a textarea, 
 		# not a type='text' field. 
 		widgets = {'summary': forms.Textarea(
-			attrs = {'cols': 80, 'rows': 8}
-			)
+						attrs = {'cols': 80, 'rows': 8}
+			),
 		}
+
+		

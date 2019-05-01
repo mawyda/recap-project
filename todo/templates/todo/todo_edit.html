@@ -11,7 +11,7 @@
 		<br /> 
 		
 		<!-- Will require link to the todos again -->
-		<form action="{% url 'todo_edit' todo.id %}" method="POST">
+		<form action="{% url 'todo_edit' todo.id %}" method="post">
 			{% csrf_token %}
 			{{ form.as_p }}
 			<button name="submit">Save Changes</button> 
