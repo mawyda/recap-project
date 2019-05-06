@@ -32,7 +32,7 @@ def todo_edit(request, todo_id):
 		# Fill the form with the data needed. 
 		form = ToDoForm(instance = todo)
 	else:
-		# Posting data. creat instance with data post.
+		# Posting data. create instance with data post.
 		form = ToDoForm(instance = todo, data = request.POST)
 		# Check if valid, then save 
 		if form.is_valid():
