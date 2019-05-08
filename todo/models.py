@@ -5,7 +5,7 @@ from django.db import models
 class ToDo(models.Model):
 	"""Class representing the ToDo model."""
 	title = models.CharField(max_length = 40)
-	summary = models.CharField(max_length = 500)
+	summary = models.CharField(max_length = 1000)
 	date_added = models.DateTimeField(auto_now_add = True)
 	date_due = models.DateTimeField()
 		

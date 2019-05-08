@@ -17,6 +17,11 @@
 			<a href="{% url 'todos_main' %}">Back to ToDos...</a>
 			<br />
 			<br />
+			<!-- Addign data for the delete portion --> 
+			<form action="{% url 'todo_details' todo.id %}" method="post">
+				{% csrf_token %}
+				<button name="submit" value="delfrm1":>Delete Entry</button>
+			</form>
 			<!-- Ultimately this will be a list item with things pushed horizontally -->
 			<table>
 				<tr>

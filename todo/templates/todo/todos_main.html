@@ -9,7 +9,10 @@
 			<h3>To do list</h3>
 			<a href="{% url 'create_todo' %}">Create a new ToDo Item</a>
 			<br />
-			
+			{% if msg %} 
+				<p>{{ msg }}</p>
+			{% endif %}
+			<br />
 			<!-- Table for the todo list --> 
 			<table> 
 				<tr> 
