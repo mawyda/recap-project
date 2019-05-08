@@ -1,13 +1,17 @@
 <!DOCTYPE HTML>
-{% extends "questions/base.html" %} <!-- this should really be moved into a top level template-->
+{% extends "questions/base.html" %}
+ <!-- this should really be moved into a top level template-->
 <html>
 	<head>
 		<title>Todo List</title>
+		
 	</head>
 	<body>
 		{% block content %}
 			<h3>To do list</h3>
 			<a href="{% url 'create_todo' %}">Create a new ToDo Item</a>
+			<p>Number of incomplete items: {{ inc|length }}</p>
+			<p>Number of Overdue items: {{ overdue }}</p>
 			<br />
 			{% if msg %} 
 				<p>{{ msg }}</p>

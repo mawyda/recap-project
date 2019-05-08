@@ -6,16 +6,43 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse 
 
+from datetime import datetime
+import pytz
+
 from .models import ToDo
 from .forms import ToDoForm
 
 def todos(request):
 	"""Home page of the todos app."""
-	### TEST: Please complete
-	# Trying to grab all data upfront:
-	# Is this ok, or should all be passed in the template? 
+	
+	# Notes: 
+	'''
+	Will the incomplete item count be made redundant once the filter 
+	is applied and only unfinished items exist? Probably...
+	'''
+	
+	
+	# All data can be grabbed upfront, or the all() method used in 
+	# template
 	todos = ToDo.objects.all()
-	return render(request, 'todo/todos_main.html', {'todos': todos})
+	# Filtering for counts of Overdue and Incomplete
+	# Q?: Should overdue be a model field, or done on the fly? 
+	# Q?: Should this be dumped in a utils file? 
+	
+	incomplete = ToDo.objects.filter(done = False)	
+	# for now, getting a count of overdue items
+	now = datetime.now(tz = pytz.utc) # Should be more accurate like EST
+	counter = 0
+	for t in incomplete: # do not care about finished ToDos
+		if now > t.date_due:
+			counter += 1
+	
+	# Using a template filter to provide len() of incomplete.	
+	# Also, should a single query object be passed, and then the various 
+	# filters done in the template? Question entry...
+	
+	context = {'todos': todos, 'inc' : incomplete, 'overdue': counter}
+	return render(request, 'todo/todos_main.html', context)
 	
 def todo_details(request, todo_id):
 	"""The individual detail page for the ToDo items"""
