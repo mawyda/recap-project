@@ -1,14 +1,15 @@
 <!DOCTYPE HTML>
 <html>
 	<!-- Unclear where the head and title stuff should go. DO I allow the child to take over that stuff? -->
-	<head> 
+	<head>
 		<style>
-			a {
+			div.header a {
 				font-family: Helvetica, sans-serif;
 				background-color: #adccff;
 				color: black;
 			}
 		</style>
+		{% block head %}{% endblock head %} 
 	</head>
 	<body>
 		<div class="header">
@@ -16,7 +17,7 @@
 			<a href="{% url 'allquestions' %}">Back to questions</a>
 		</div>
 		<br />
-		
+
 		{% block content %}{% endblock content %}
 	</body>
 </html>

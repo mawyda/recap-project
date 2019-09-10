@@ -13,3 +13,4 @@ media
 recap-project_notes.txt
 myvenv/
 *.json
+staticfiles/
