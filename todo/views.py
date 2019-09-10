@@ -53,23 +53,19 @@ def todo_details(request, todo_id):
 	todo = ToDo.objects.get(id = todo_id)
 	# Steps for deleting entries
 	if request.method == 'POST':
+		# JS added to prompt user.
+		# The odsy queryset has the key: value pair corresponding to the html's
+		# Values of the name and value attributes, so
+		# <name = "submit" value = "delfrm1"
+	
 		if request.POST['submit'] == 'delfrm1':
 			# Delete entry, return to main ToDo page.
 			todo.delete()
-
-			#### PREVIOUS VERSION. ONLY renders, not call url ####
-			# msg to send to main page
-			#msg = 'DELETED entry: {}'.format(todo.title)
-			## Grab all todos to return to main page
-			#todos = ToDo.objects.all()
-			#return render(request, 'todo/todos_main.html',
-					#{'msg': msg, 'todos': todos})
-
 			# TODO: Use the built in messages class to pass info
 			return HttpResponseRedirect(reverse('todos_main'))
-	else:
-		# Otherwise, display the data
-		return render(request, 'todo/todo_details.html', {'todo': todo})
+
+	# Otherwise, display the data
+	return render(request, 'todo/todo_details.html', {'todo': todo})
 
 @login_required
 def todo_edit(request, todo_id):

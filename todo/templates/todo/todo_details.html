@@ -1,44 +1,55 @@
 <!DOCTYPE html>
 {% extends "questions/base.html" %}
-<html>
-	{% block content %}
-	<head>
-		<title>{{ todo.title }}</title>
-		<style> 
-			a { 
-				margin-right: 20px
+
+<head>
+	{% block head %}
+	<title>{{ todo.title }}</title>
+	<script type="text/javascript">
+		function delete_data(obj) {
+			/**
+			* Changes the button value based on the users response to confrim()
+			*/
+			var user = window.confirm('Are you sure you want to delete?');
+			if (user == true) {
+				obj.value = "delfrm1";
+				console.log('yes was clicked')
+			} else {
+				obj.value = "keepit";
 			}
-		</style>
-	</head>
-	<body>
-		
-			<h3>{{ todo.title }}</h3>
-			<a href="{% url 'todo_edit' todo.id %}">Edit entry</a>
-			<a href="{% url 'todos_main' %}">Back to ToDos...</a>
-			<br />
-			<br />
-			<!-- Addign data for the delete portion --> 
-			<form action="{% url 'todo_details' todo.id %}" method="post">
-				{% csrf_token %}
-				<button name="submit" value="delfrm1":>Delete Entry</button>
-			</form>
-			<!-- Ultimately this will be a list item with things pushed horizontally -->
-			<table>
-				<tr>
-					<td>Date Added</td>
-					<td>Due Date</td>
-					<td>Difficulty</td>
-					<td>Done?</td>
-				</tr>
-				<tr>
-					<td>{{ todo.date_added }}</td>
-					<td>{{ todo.date_due }}</td>
-					<td>{{ todo.get_difficulty_display }}</td>
-					<td>{{ todo.done }}</td>
-				</tr>
-			</table>
-			<br />
-			<p>{{ todo.summary| linebreaks }}</p>
-		{% endblock content %}
-	</body>
-</html> 
+		}
+	</script>
+	{% endblock head %}
+</head>
+<body>
+	{% block content %}
+		<h3>{{ todo.title }}</h3>
+		<a href="{% url 'todo_edit' todo.id %}">Edit entry</a>
+		<a href="{% url 'todos_main' %}">Back to ToDos...</a>
+		<br />
+		<br />
+		<!-- Addign data for the delete portion -->
+		<form action="{% url 'todo_details' todo.id %}" method="post">
+			{% csrf_token %}
+			<button name="submit" value="keepit" onclick="delete_data(this)">
+					Delete Entry</button>
+		</form>
+
+		<!-- Ultimately this will be a list item with things pushed horizontally -->
+		<table>
+			<tr>
+				<td>Date Added</td>
+				<td>Due Date</td>
+				<td>Difficulty</td>
+				<td>Done?</td>
+			</tr>
+			<tr>
+				<td>{{ todo.date_added }}</td>
+				<td>{{ todo.date_due }}</td>
+				<td>{{ todo.get_difficulty_display }}</td>
+				<td>{{ todo.done }}</td>
+			</tr>
+		</table>
+		<br />
+		<p>{{ todo.summary|linebreaks }}</p>
+	{% endblock content %}
+</body>
