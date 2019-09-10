@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+  </head>
+  <body>
+    <h3>Please login</h3>
+    <form action="{% url 'login'%}" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Login" />
+    </form>
+  </body>
+</html>
