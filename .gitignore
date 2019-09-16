@@ -13,8 +13,6 @@ media
 recap-project_notes.txt
 myvenv/
 *.json
-<<<<<<< HEAD
-=======
 staticfiles/
 .DS_Store
->>>>>>> 08ccb9f0d9b4d705fd64dd1416cc1b813e877e66
+.idea/
