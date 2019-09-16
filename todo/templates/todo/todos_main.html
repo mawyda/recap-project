@@ -1,42 +1,42 @@
 <!DOCTYPE HTML>
 {% extends "questions/base.html" %}
  <!-- this should really be moved into a top level template-->
-<html>
-	<head>
-		<title>Todo List</title>
-		
-	</head>
-	<body>
-		{% block content %}
-			<h3>To do list</h3>
-			<a href="{% url 'create_todo' %}">Create a new ToDo Item</a>
-			<p>Number of incomplete items: {{ inc|length }}</p>
-			<p>Number of Overdue items: {{ overdue }}</p>
-			<br />
-			{% if msg %} 
-				<p>{{ msg }}</p>
-			{% endif %}
-			<br />
-			<!-- Table for the todo list --> 
-			<table> 
-				<tr> 
-					<th>Title</th>
-					<th>Due Date</th>
-					<th>Difficulty</th>
-					<th>Done?</th>
+
+<head>
+	{% block head %}
+	<title>Todo List</title>
+	{% endblock head %}
+</head>
+<body>
+	{% block content %}
+		<h3>To do list</h3>
+		<a href="{% url 'create_todo' %}">Create a new ToDo Item</a>
+		<p>Number of incomplete items: {{ inc|length }}</p>
+		<p>Number of Overdue items: {{ overdue }}</p>
+		<br />
+		{% if msg %}
+			<p>{{ msg }}</p>
+		{% endif %}
+		<br />
+		<!-- Table for the todo list -->
+		<table>
+			<tr>
+				<th>Title</th>
+				<th>Due Date</th>
+				<th>Difficulty</th>
+				<th>Done?</th>
+			</tr>
+			<!-- Loop through data-->
+			{% for todo in todos %}
+				<tr>
+					<td><a href="{% url 'todo_details' todo.id %}">{{ todo.title }}</a></td>
+					<td>{{ todo.date_due }}</td>
+					<!-- Also, do you not pass parentheses, for methods, in a template? -->
+					<td>{{ todo.get_difficulty_display }}</td>
+					<td>{{ todo.done }}</td>
 				</tr>
-				<!-- Loop through data-->
-				{% for todo in todos %}
-					<tr>
-						<td><a href="{% url 'todo_details' todo.id %}">{{ todo.title }}</a></td>
-						<td>{{ todo.date_due }}</td>
-						<!-- Also, do you not pass parentheses, for methods, in a template? -->
-						<td>{{ todo.get_difficulty_display }}</td>
-						<td>{{ todo.done }}</td>
-					</tr>
-					
-			{% endfor %}
-		</table> 			
-		{% endblock content %}
-	</body>
-</html>
+
+		{% endfor %}
+	</table>
+	{% endblock content %}
+</body>

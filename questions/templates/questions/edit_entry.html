@@ -1,34 +1,36 @@
 <!DOCTYPE HTML>
 {% extends "questions/base.html" %}
-<html> 
-	<head> 
-		<title>Edit entry</title>
-		<!-- TO play with the textarea fields.  -->
-		<!--
-		<style>
-			.textarea-field { 
-				width: 400px;
-				height: 200px;
-				border: 3px solid red
-			}
-		</style>
-		-->
-	</head> 
-	<body> 
-		{% block content %} 
-			<h3>Edit Contents for...</h3>
-			<p>{{ entry.title }}</p>
-			<br />
-			
-			<!-- FOrm info goes here. DOn't forget to include the id -->
-			
-		<form action="{% url 'edit_entry' entry.id %}" method="post">
-			{% csrf_token %} 
-			{{ entry_form.as_p }}
-			<button name="submit">Save Changes</button> 
-		</form>
-		
-		
-		{% endblock content %}
-	</body>
-</html>
+
+<head>
+	{% block head %}
+	{{ entry_form.media }}
+	<title>Edit entry</title>
+			<!-- TO play with the textarea fields.  -->
+	<!--
+	<style>
+		.textarea-field {
+			width: 400px;
+			height: 200px;
+			border: 3px solid red
+		}
+	</style>
+	-->
+	{% endblock head %}
+</head>
+<body>
+	{% block content %}
+		<h3>Edit Contents for...</h3>
+		<p>{{ entry.title }}</p>
+		<br />
+
+		<!-- FOrm info goes here. DOn't forget to include the id -->
+
+	<form action="{% url 'edit_entry' entry.id %}" method="post">
+		{% csrf_token %}
+		{{ entry_form.as_p }}
+		<button name="submit">Save Changes</button>
+	</form>
+
+
+	{% endblock content %}
+</body>

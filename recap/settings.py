@@ -37,8 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # my apps
     'questions.apps.QuestionsConfig',
     'todo.apps.TodoConfig',
+    # third-party apps
+    'pagedown',
+    'markdown_deux',
 ]
 
 MIDDLEWARE = [
@@ -115,8 +119,16 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Login info
+LOGIN_REDIRECT_URL = 'home'
+
+LOGIN_URL = 'login'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = []
 
 STATIC_URL = '/static/'

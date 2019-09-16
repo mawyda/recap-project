@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth.views import LoginView
 
 from . import views
 
@@ -23,7 +24,10 @@ urlpatterns = [
     path('', views.home, name = 'home'),
     path('count/', views.count, name = 'count'),
     path('code/', views.code, name = 'code'),
+    # For login only
+    path('login/', LoginView.as_view(template_name = 'login.html'),
+        name = 'login'),
     path('questions/', include('questions.urls')),
     # The ToDo app
-    path('todo/', include('todo.urls')), 
+    path('todo/', include('todo.urls')),
 ]

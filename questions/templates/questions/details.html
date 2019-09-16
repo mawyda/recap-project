@@ -1,22 +1,30 @@
 <!DOCTYPE HTML>
 {% extends "questions/base.html" %}
-<html>
-	<head>
-		<!-- can you pass this title here? Yep, this works. -->
-		<title>{{ details.title }}</title>
-	</head>
-	<body>
-		{% block content %}
-			<h3>{{ details.title }}</h3>
-			<p>{{ details.date }}</p>
-			<p>{{ details.topic }}</p>
-			<br />
-			<p>{{ details.summary|linebreaks }}</p>
-			<!-- new for the edit features -->
-			<br />
-			<a href="{% url 'edit_entry' details.id %}">Edit this entry?</a>
-			
-			<!-- end edit features -->
-		{% endblock content %}
-	</body>
-</html>
+
+<head>
+	{% block head %}
+	{% load markdown_deux_tags %}
+	<title>{{ details.title }}</title>
+	<style>
+		pre {
+			padding: 8px;
+			background-color: lightgrey;
+			border-radius: 4px;
+		}
+	</style>
+	{% endblock head %}
+</head>
+<body>
+	{% block content %}
+		<h3>{{ details.title }}</h3>
+		<p>{{ details.date }}</p>
+		<p>{{ details.topic }}</p>
+		<br />
+		<p>{{ details.summary|markdown }}</p>
+		<!-- new for the edit features -->
+		<br />
+		<a href="{% url 'edit_entry' details.id %}">Edit this entry?</a>
+
+		<!-- end edit features -->
+	{% endblock content %}
+</body>
