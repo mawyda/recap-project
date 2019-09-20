@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '51b&um@8yare!)yj2@y^-w19i4=s@joio4jm=@w=ny^e^bwqdn'
+SECRET_KEY = os.environ['APP_SECRET_KEY'] # Consider using .get() and a default value of ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -84,9 +84,9 @@ WSGI_APPLICATION = 'recap.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'recap_db',
-        'USER': 'postgres',
-        'PASSWORD': 'wiawsnb4',
+        'NAME': os.environ.get('APP_DB_NAME', ''),
+        'USER': os.environ.get('APP_DB_USER', ''),
+        'PASSWORD': os.environ.get('APP_DB_PSWD', ''),
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -138,12 +138,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = []
 
 STATIC_URL = '/static/'
-
-# try to load local_settings.py if it exists
-# If not, fail lightly you will
-try:
-  from local_settings import *
-except Exception as e:
-  pass
 
 
