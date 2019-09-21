@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['APP_SECRET_KEY'] # Consider using .get() and a default value of ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('APP_DEBUG') == "1"
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = os.environ.get('APP_ALLOWED_HOSTS', 'localhost').split(',')
 
 
 # Application definition
@@ -91,6 +92,11 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+# Check for host DB url
+db_from_env = dj_database_url.config() # Gets the necessary database info, parsed
+DATABASES['default'].update(db_from_env)
+
+
 
 
 # Password validation
@@ -139,4 +145,6 @@ STATICFILES_DIRS = []
 
 STATIC_URL = '/static/'
 
-
+# Deployment setting.
+# Honor the 'X-Forwarded-Proto' header for request.is_secure().
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
